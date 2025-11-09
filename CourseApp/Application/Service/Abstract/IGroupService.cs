@@ -17,5 +17,7 @@ namespace Application.Service.Abstract
         List<Group> GetByRoom(string room);
         List<Group> GetAll();
         List<Group> SearchByName(string name);
+
+        
     }
 }

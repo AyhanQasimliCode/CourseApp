@@ -9,7 +9,7 @@ namespace Domain.Entities
     public abstract class BaseEntity
     {
         private static int _idCounter = 0;
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
         protected BaseEntity()
         {

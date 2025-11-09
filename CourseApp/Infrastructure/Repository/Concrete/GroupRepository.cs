@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Infrastructure.Data;
 using Infrastructure.Repository.Abstract;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace Infrastructure.Repository.Concrete
     {
         public void Create(Group data)
         {
-            throw new NotImplementedException();
+            AppDbContext<Group>.datas.Add(data);
         }
 
         public void Delete(int id)
@@ -22,17 +23,17 @@ namespace Infrastructure.Repository.Concrete
 
         public List<Group> GetAll()
         {
-            throw new NotImplementedException();
+            return AppDbContext<Group>.datas.ToList();
         }
 
         public Group? GetById(int id)
         {
-            throw new NotImplementedException();
+            return AppDbContext<Group>.datas.FirstOrDefault(x => x.Id == id);
         }
 
         public Group? GetByName(string name)
         {
-            throw new NotImplementedException();
+            return AppDbContext<Group>.datas.Find(g => g.Name.ToLower() == name.ToLower());
         }
 
         public List<Group> GetByRoom(string room)
@@ -52,7 +53,15 @@ namespace Infrastructure.Repository.Concrete
 
         public void Update(Group data)
         {
-            throw new NotImplementedException();
+            var groupList = AppDbContext<Group>.datas;
+            var existingGroup = groupList.FirstOrDefault(g => g.Id == data.Id);
+            if (existingGroup != null)
+            {
+                existingGroup.Name = data.Name;
+                existingGroup.Room = data.Room;
+                existingGroup.Teacher = data.Teacher;
+            }
+            
         }
     }
 }

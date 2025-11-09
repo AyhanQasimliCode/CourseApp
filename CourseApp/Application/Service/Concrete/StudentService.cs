@@ -9,14 +9,17 @@ using System.Threading.Tasks;
 
 namespace Application.Service.Concrete
 {
-    public class StudentService : IGroupService
+    public class StudentService : IStudentService
     {
         private readonly IStudentRepository _studentRepository;
-        public StudentService(IStudentRepository studentRepository)
+        private readonly IGroupRepository _groupRepository;
+        public StudentService(IStudentRepository studentRepository, IGroupRepository groupRepository)
         {
             _studentRepository = studentRepository;
+            _groupRepository = groupRepository;
         }
-        public void Create(Group group)
+
+        public void Create(Student student)
         {
             throw new NotImplementedException();
         }
@@ -26,32 +29,32 @@ namespace Application.Service.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Group> GetAll()
+        public List<Student> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Group GetById(int id)
+        public List<Student> GetByAge(int age)
         {
             throw new NotImplementedException();
         }
 
-        public List<Group> GetByRoom(string room)
+        public List<Student> GetByGroupId(int groupId)
         {
             throw new NotImplementedException();
         }
 
-        public List<Group> GetByTeacher(string teacher)
+        public Student GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Group> SearchByName(string name)
+        public List<Student> SearchByNameOrSurname(string keyword)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Group group)
+        public void Update(Student student)
         {
             throw new NotImplementedException();
         }
