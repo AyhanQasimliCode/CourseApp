@@ -28,8 +28,14 @@ namespace Application.Service.Concrete
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var existing = _groupRepository.GetById(id);
+
+            if (existing == null)
+                throw new NotFoundException("Group not found.");
+
+            _groupRepository.Delete(id);
         }
+
 
         public List<Group> GetAll()
         {
@@ -48,17 +54,33 @@ namespace Application.Service.Concrete
 
         public List<Group> GetByRoom(string room)
         {
-            throw new NotImplementedException();
+            var groups = _groupRepository.GetByRoom(room);
+
+            if (groups == null || groups.Count == 0)
+                throw new NotFoundException($"No groups found for rooms '{room}'.");
+
+            return groups;
         }
 
         public List<Group> GetByTeacher(string teacher)
         {
-            throw new NotImplementedException();
+            var groups = _groupRepository.GetByTeacher(teacher);
+
+            if (groups == null || groups.Count == 0)
+                throw new NotFoundException($"No groups found for teacher '{teacher}'.");
+
+            return groups;
         }
+
 
         public List<Group> SearchByName(string name)
         {
-            throw new NotImplementedException();
+            var groups = _groupRepository.SearchByName(name);
+
+            if (groups == null || groups.Count == 0)
+                throw new NotFoundException($"No groups found with name containing '{name}'.");
+
+            return groups;
         }
 
         public void Update(Group group)

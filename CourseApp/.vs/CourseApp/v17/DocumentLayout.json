@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Darya\\Desktop\\CodeBack\\CourseApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3C8D43AD-8161-4EEB-9A5C-43AEB397F3C1}|Infrastructure\\Infrastructure.csproj|c:\\users\\darya\\desktop\\codeback\\courseapp\\infrastructure\\repository\\concrete\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C8D43AD-8161-4EEB-9A5C-43AEB397F3C1}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repository\\concrete\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0DAD0065-80F0-4D5B-8445-06E19C183465}|Application\\Application.csproj|c:\\users\\darya\\desktop\\codeback\\courseapp\\application\\service\\concrete\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0DAD0065-80F0-4D5B-8445-06E19C183465}|Application\\Application.csproj|solutionrelative:application\\service\\concrete\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C8D43AD-8161-4EEB-9A5C-43AEB397F3C1}|Infrastructure\\Infrastructure.csproj|c:\\users\\darya\\desktop\\codeback\\courseapp\\infrastructure\\repository\\concrete\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C8D43AD-8161-4EEB-9A5C-43AEB397F3C1}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repository\\concrete\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1B040825-C0BA-43BB-A8E8-300E54AAA51F}|Presentation\\Presentation.csproj|c:\\users\\darya\\desktop\\codeback\\courseapp\\presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B040825-C0BA-43BB-A8E8-300E54AAA51F}|Presentation\\Presentation.csproj|solutionrelative:presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0DAD0065-80F0-4D5B-8445-06E19C183465}|Application\\Application.csproj|c:\\users\\darya\\desktop\\codeback\\courseapp\\application\\service\\abstract\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0DAD0065-80F0-4D5B-8445-06E19C183465}|Application\\Application.csproj|c:\\users\\darya\\desktop\\codeback\\courseapp\\application\\service\\abstract\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0DAD0065-80F0-4D5B-8445-06E19C183465}|Application\\Application.csproj|solutionrelative:application\\service\\abstract\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B040825-C0BA-43BB-A8E8-300E54AAA51F}|Presentation\\Presentation.csproj|c:\\users\\darya\\desktop\\codeback\\courseapp\\presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B040825-C0BA-43BB-A8E8-300E54AAA51F}|Presentation\\Presentation.csproj|solutionrelative:presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4E83F0C5-B159-4474-9E75-510369D6E092}|Domain\\Domain.csproj|c:\\users\\darya\\desktop\\codeback\\courseapp\\domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,8 +94,7 @@
               "RelativeToolTip": "Application\\Exceptions\\NotFoundException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T20:56:35.812Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T20:56:35.812Z"
             },
             {
               "$type": "Document",
@@ -107,8 +106,7 @@
               "RelativeToolTip": "Application\\Helpers\\Helper.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAwCkAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T19:21:47.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T19:21:47.888Z"
             },
             {
               "$type": "Document",
@@ -120,8 +118,7 @@
               "RelativeToolTip": "Application\\Exceptions\\DuplicateGroupException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T19:05:17.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T19:05:17.132Z"
             },
             {
               "$type": "Document",
@@ -133,25 +130,24 @@
               "RelativeToolTip": "Application\\Service\\Concrete\\StudentService.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAApwDsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T18:46:07.421Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T18:46:07.421Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GroupService.cs",
               "DocumentMoniker": "C:\\Users\\Darya\\Desktop\\CodeBack\\CourseApp\\Application\\Service\\Concrete\\GroupService.cs",
               "RelativeDocumentMoniker": "Application\\Service\\Concrete\\GroupService.cs",
               "ToolTip": "C:\\Users\\Darya\\Desktop\\CodeBack\\CourseApp\\Application\\Service\\Concrete\\GroupService.cs",
               "RelativeToolTip": "Application\\Service\\Concrete\\GroupService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAQwFQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-09T18:45:59.766Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IGroupService.cs",
               "DocumentMoniker": "C:\\Users\\Darya\\Desktop\\CodeBack\\CourseApp\\Application\\Service\\Abstract\\IGroupService.cs",
               "RelativeDocumentMoniker": "Application\\Service\\Abstract\\IGroupService.cs",
@@ -159,12 +155,11 @@
               "RelativeToolTip": "Application\\Service\\Abstract\\IGroupService.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAewBIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T18:45:03.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T18:45:03.744Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "IStudentService.cs",
               "DocumentMoniker": "C:\\Users\\Darya\\Desktop\\CodeBack\\CourseApp\\Application\\Service\\Abstract\\IStudentService.cs",
               "RelativeDocumentMoniker": "Application\\Service\\Abstract\\IStudentService.cs",
@@ -172,8 +167,7 @@
               "RelativeToolTip": "Application\\Service\\Abstract\\IStudentService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T18:44:55.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T18:44:55.463Z"
             },
             {
               "$type": "Document",
@@ -189,13 +183,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GroupRepository.cs",
               "DocumentMoniker": "C:\\Users\\Darya\\Desktop\\CodeBack\\CourseApp\\Infrastructure\\Repository\\Concrete\\GroupRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repository\\Concrete\\GroupRepository.cs",
               "ToolTip": "C:\\Users\\Darya\\Desktop\\CodeBack\\CourseApp\\Infrastructure\\Repository\\Concrete\\GroupRepository.cs",
               "RelativeToolTip": "Infrastructure\\Repository\\Concrete\\GroupRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-09T18:43:15.199Z",
               "EditorCaption": ""
@@ -222,8 +216,7 @@
               "RelativeToolTip": "Infrastructure\\Repository\\Abstract\\IGroupRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T18:39:45.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T18:39:45.083Z"
             },
             {
               "$type": "Document",
@@ -271,8 +264,7 @@
               "RelativeToolTip": "Domain\\Entities\\Group.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T18:36:05.389Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T18:36:05.389Z"
             },
             {
               "$type": "Document",
@@ -284,18 +276,17 @@
               "RelativeToolTip": "Domain\\Entities\\BaseEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T18:34:47.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-09T18:34:47.106Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Darya\\Desktop\\CodeBack\\CourseApp\\Presentation\\Program.cs",
               "RelativeDocumentMoniker": "Presentation\\Program.cs",
               "ToolTip": "C:\\Users\\Darya\\Desktop\\CodeBack\\CourseApp\\Presentation\\Program.cs",
               "RelativeToolTip": "Presentation\\Program.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAkwBwAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAIwCAAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-09T18:29:03.955Z",
               "EditorCaption": ""

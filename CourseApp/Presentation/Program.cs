@@ -28,18 +28,32 @@ namespace Presentation
                 string choice = Console.ReadLine();
                 try
                 {
-                    switch(choice)
+                    switch (choice)
                     {
                         case "1": CreateGroup(groupService); break;
                         case "2": UpdateGroup(groupService); break;
+                        case "3": DeleteGroup(groupService); break;
+                        case "4": GetGroupById(groupService); break;
+                        case "5": GetGroupsByTeacher(groupService); break;
+                        case "6": GetGroupsByRoom(groupService); break;
                         case "7": GetAllGroups(groupService); break;
-
-
-
-
+                        case "14": SearchGroupsByName(groupService); break;
+                        case "0": return;
                     }
                 }
-                catch (DuplicateGroupException ex) { Console.WriteLine(ex.Message); }
+                catch (DuplicateGroupException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (NotFoundException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An unexpected error occurred: " + ex.Message);
+                }
+
             }
         }
         public static void ShowMenu()
@@ -101,14 +115,49 @@ namespace Presentation
             groupService.Update(groupToUpdate);
             Console.WriteLine("Group updated.");
         }
+        public static void DeleteGroup(IGroupService groupService)
+        {
+            Console.WriteLine("== Delete Group ==");
+            var id = Helper.GetValidatedInteger("Group Id: ");
+            groupService.Delete(id);
+            Console.WriteLine("Group deleted.");
+        }
+        public static void GetGroupById(IGroupService groupService)
+        {
+            Console.WriteLine("== Get Group By Id ==");
+            int id = Helper.GetValidatedInteger("Group Id: ");
+            var group = groupService.GetById(id);
+            PrintGroup(group);
 
-        static void GetAllGroups(IGroupService groupService)
+        }
+        public static void GetGroupsByTeacher(IGroupService groupService)
+        {
+            Console.WriteLine("== Get Groups By Teacher ==");
+            var teacher = Helper.GetValidatedStringLettersOnly("Teacher: ");
+            var list = groupService.GetByTeacher(teacher);
+            list.ForEach(PrintGroup);
+        }
+        public static void GetGroupsByRoom(IGroupService groupService)
+        {
+            Console.WriteLine("== Get Groups By Room ==");
+            var room = Helper.GetValidatedStringAlphaNumeric("Room: ");
+            var list = groupService.GetByRoom(room);
+            list.ForEach(PrintGroup);
+        }
+        public static void GetAllGroups(IGroupService groupService)
         {
             Console.WriteLine("== All Groups ==");
             var groupList = groupService.GetAll();
             if (!groupList.Any()) 
                 Console.WriteLine("No groups.");
             groupList.ForEach(PrintGroup);
+        }
+        public static void SearchGroupsByName(IGroupService service)
+        {
+            Console.WriteLine("== Search Groups By Name ==");
+            var groupName = Helper.GetValidatedStringAlphaNumeric("Name search: ");
+            var list = service.SearchByName(groupName);
+            list.ForEach(PrintGroup);
         }
         public static void PrintGroup(Group group)
         {

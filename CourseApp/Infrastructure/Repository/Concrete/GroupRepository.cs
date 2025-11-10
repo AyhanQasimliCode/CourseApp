@@ -18,7 +18,11 @@ namespace Infrastructure.Repository.Concrete
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var group = GetById(id);
+            if (group != null)
+            {
+                AppDbContext<Group>.datas.Remove(group);
+            }
         }
 
         public List<Group> GetAll()
@@ -38,17 +42,34 @@ namespace Infrastructure.Repository.Concrete
 
         public List<Group> GetByRoom(string room)
         {
-            throw new NotImplementedException();
+            var result = new List<Group>();
+
+            foreach (var group in AppDbContext<Group>.datas)
+            {
+                if (group.Room.ToLower() == room.ToLower())
+                    result.Add(group);
+            }
+
+            return result;
         }
 
         public List<Group> GetByTeacher(string teacher)
         {
-            throw new NotImplementedException();
+            var result = new List<Group>();
+
+            foreach (var group in AppDbContext<Group>.datas)
+            {
+                if (group.Teacher.ToLower() == teacher.ToLower())
+                    result.Add(group);
+            }
+
+            return result;
         }
 
         public List<Group> SearchByName(string name)
         {
-            throw new NotImplementedException();
+            string lowerName = name.ToLower();
+            return AppDbContext<Group>.datas.Where(g => g.Name.ToLower().Contains(lowerName)).ToList();
         }
 
         public void Update(Group data)
