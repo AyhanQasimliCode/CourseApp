@@ -37,6 +37,10 @@ namespace Presentation
                         case "5": GetGroupsByTeacher(groupService); break;
                         case "6": GetGroupsByRoom(groupService); break;
                         case "7": GetAllGroups(groupService); break;
+                        case "8": CreateStudent(studentService, groupService); break;
+                        case "9": UpdateStudent(studentService, groupService); break;
+                        case "10": GetStudentById(studentService); break;
+
                         case "14": SearchGroupsByName(groupService); break;
                         case "0": return;
                     }
@@ -159,9 +163,86 @@ namespace Presentation
             var list = service.SearchByName(groupName);
             list.ForEach(PrintGroup);
         }
+        public static void CreateStudent(IStudentService studentService, IGroupService groupService)
+        {
+            Console.WriteLine("== Create Student ==");
+            var name = Helper.GetValidatedStringLettersOnly("Name (letters only): ");
+            var surname = Helper.GetValidatedStringLettersOnly("Surname (letters only): ");
+            var age = Helper.GetValidatedInteger("Age: ");
+
+            Console.Write("Assign to group? (y/n): ");
+            var yn = Console.ReadLine();
+            Group? group = null;
+            if (!string.IsNullOrEmpty(yn) && yn.Trim().ToLower() == "y")
+            {
+                var groups = groupService.GetAll();
+                groups.ForEach(g => Console.WriteLine($"Id:{g.Id} Name:{g.Name}"));
+                var gid = Helper.GetValidatedInteger("Group Id: ");
+                group = groupService.GetById(gid);
+            }
+
+            studentService.Create(new Student { Name = name, Surname = surname, Age = age, Group = group });
+            Console.WriteLine("Student created.");
+        }
+        public static void UpdateStudent(IStudentService studentService, IGroupService groupService)
+        {
+            Console.WriteLine("== Update Student ==");
+            var id = Helper.GetValidatedInteger("Student Id: ");
+            var existing = studentService.GetById(id);
+
+            Console.WriteLine("Leave fields empty if you do not want to change them.");
+
+            Console.Write($"Name ({existing.Name}): ");
+            string name = Console.ReadLine();
+
+            Console.Write($"Surname ({existing.Surname}): ");
+            string surname = Console.ReadLine();
+
+            Console.Write($"Age ({existing.Age}): ");
+            string ageInput = Console.ReadLine();
+            int age = 0;
+            if (!string.IsNullOrWhiteSpace(ageInput))
+                age = int.Parse(ageInput);
+
+            Console.Write("Assign to group? (y/n): ");
+            var yn = Console.ReadLine();
+            Group? group = null;
+            if (!string.IsNullOrEmpty(yn) && yn.Trim().ToLower() == "y")
+            {
+                var groups = groupService.GetAll();
+                groups.ForEach(g => Console.WriteLine($"Id:{g.Id} Name:{g.Name}"));
+                var gid = Helper.GetValidatedInteger("Group Id: ");
+                group = groupService.GetById(gid);
+            }
+
+            var studentToUpdate = new Student
+            {
+                Id = id,
+                Name = string.IsNullOrWhiteSpace(name) ? null : name,
+                Surname = string.IsNullOrWhiteSpace(surname) ? null : surname,
+                Age = age,
+                Group = group
+            };
+
+            studentService.Update(studentToUpdate);
+            Console.WriteLine("Student updated.");
+        }
+
+        public static void GetStudentById(IStudentService sService)
+        {
+            Console.WriteLine("== Get Student By Id ==");
+            var id = Helper.GetValidatedInteger("Student Id: ");
+            var s = sService.GetById(id);
+            PrintStudent(s);
+        }
         public static void PrintGroup(Group group)
         {
             Console.WriteLine($"Id:{group.Id} | Name:{group.Name} | Teacher:{group.Teacher} | Room:{group.Room}");
+        }
+        public static void PrintStudent(Student s)
+        {
+            var group = s.Group != null ? $"{s.Group.Id}:{s.Group.Name}" : "NoGroup";
+            Console.WriteLine($"Id:{s.Id} | {s.Name} {s.Surname} | Age:{s.Age} | Group:{group}");
         }
     }
 }

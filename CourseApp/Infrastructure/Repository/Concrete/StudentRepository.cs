@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Infrastructure.Data;
 using Infrastructure.Repository.Abstract;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,8 @@ namespace Infrastructure.Repository.Concrete
     {
         public void Create(Student data)
         {
-            throw new NotImplementedException();
+            AppDbContext<Student>.datas.Add(data);
         }
-
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -37,7 +37,7 @@ namespace Infrastructure.Repository.Concrete
 
         public Student? GetById(int id)
         {
-            throw new NotImplementedException();
+            return AppDbContext<Student>.datas.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Student> SearchByNameOrSurname(string keyword)
@@ -47,7 +47,14 @@ namespace Infrastructure.Repository.Concrete
 
         public void Update(Student data)
         {
-            throw new NotImplementedException();
+            var student = GetById(data.Id);
+            if (student != null)
+            {
+                student.Name = data.Name;
+                student.Surname = data.Surname;
+                student.Age = data.Age;
+                student.Group = data.Group;
+            }
         }
     }
 }
