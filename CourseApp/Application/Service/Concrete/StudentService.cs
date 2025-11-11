@@ -27,7 +27,7 @@ namespace Application.Service.Concrete
                 var g = _groupRepository.GetById(student.Group.Id);
                 if (g == null)
                 {
-                    throw new NotFoundException("Group not found for student.");
+                    throw new NotFoundException("Group not found for student");
                 }
                 student.Group = g;
             }
@@ -38,7 +38,11 @@ namespace Application.Service.Concrete
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var student = _studentRepository.GetById(id);
+            if (student == null)
+                throw new NotFoundException($"Student not found");
+
+            _studentRepository.Delete(id);
         }
 
         public List<Student> GetAll()
@@ -48,12 +52,18 @@ namespace Application.Service.Concrete
 
         public List<Student> GetByAge(int age)
         {
-            throw new NotImplementedException();
+            var list = _studentRepository.GetByAge(age);
+            if (list == null || list.Count == 0)
+                throw new NotFoundException("No students found with this age");
+            return list;
         }
 
         public List<Student> GetByGroupId(int groupId)
         {
-            throw new NotImplementedException();
+            var list = _studentRepository.GetByGroupId(groupId);
+            if (list == null || list.Count == 0)
+                throw new NotFoundException("No students found for this group");
+            return list;
         }
 
         public Student GetById(int id)
@@ -61,21 +71,24 @@ namespace Application.Service.Concrete
             var student = _studentRepository.GetById(id);
             if (student == null)
             {
-                throw new NotFoundException("Student not found.");
+                throw new NotFoundException("Student not found");
             }
             return student;
         }
 
         public List<Student> SearchByNameOrSurname(string keyword)
         {
-            throw new NotImplementedException();
+            var list = _studentRepository.SearchByNameOrSurname(keyword);
+            if (list == null || list.Count == 0)
+                throw new NotFoundException("No students found matching that search");
+            return list;
         }
 
         public void Update(Student student)
         {
             var existing = _studentRepository.GetById(student.Id);
             if (existing == null)
-                throw new NotFoundException("Student not found.");
+                throw new NotFoundException("Student not found");
 
             if (!string.IsNullOrWhiteSpace(student.Name))
                 existing.Name = student.Name;
@@ -88,10 +101,10 @@ namespace Application.Service.Concrete
 
             if (student.Group != null)
             {
-                var g = _groupRepository.GetById(student.Group.Id);
-                if (g == null)
-                    throw new NotFoundException("Group not found for student.");
-                existing.Group = g;
+                var group = _groupRepository.GetById(student.Group.Id);
+                if (group == null)
+                    throw new NotFoundException("Group not found for student");
+                existing.Group = group;
             }
             else if (student.Group == null)
             {

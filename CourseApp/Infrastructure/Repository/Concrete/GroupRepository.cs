@@ -69,7 +69,7 @@ namespace Infrastructure.Repository.Concrete
         public List<Group> SearchByName(string name)
         {
             string lowerName = name.ToLower();
-            return AppDbContext<Group>.datas.Where(g => g.Name.ToLower().Contains(lowerName)).ToList();
+            return AppDbContext<Group>.datas.FindAll(g => g.Name.ToLower().Contains(lowerName));
         }
 
         public void Update(Group data)

@@ -3,6 +3,7 @@ using Application.Service.Abstract;
 using Domain.Entities;
 using Infrastructure.Data;
 using Infrastructure.Repository.Abstract;
+using Infrastructure.Repository.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,14 @@ namespace Application.Service.Concrete
     public class GroupService : IGroupService
     {
         private readonly IGroupRepository _groupRepository;
-        public GroupService(IGroupRepository groupRepository)
+        private readonly IStudentRepository _studentRepository;
+
+        public GroupService(IGroupRepository groupRepository, IStudentRepository studentRepository)
         {
             _groupRepository = groupRepository;
+            _studentRepository = studentRepository;
         }
+
         public void Create(Group group)
         {
             var existingGroup = _groupRepository.GetByName(group.Name);
@@ -29,10 +34,15 @@ namespace Application.Service.Concrete
         public void Delete(int id)
         {
             var existing = _groupRepository.GetById(id);
-
             if (existing == null)
-                throw new NotFoundException("Group not found.");
+                throw new NotFoundException("Group not found");
 
+            var studentsInGroup = _studentRepository.GetByGroupId(id);
+            foreach (var student in studentsInGroup)
+            {
+                student.Group = null;
+                _studentRepository.Update(student);
+            }
             _groupRepository.Delete(id);
         }
 
@@ -47,7 +57,7 @@ namespace Application.Service.Concrete
             var group = _groupRepository.GetById(id);
             if (group == null)
             {
-                throw new NotFoundException("Group not found.");
+                throw new NotFoundException("Group not found");
             }
             return group;
         }

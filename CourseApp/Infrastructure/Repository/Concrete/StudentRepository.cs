@@ -17,7 +17,11 @@ namespace Infrastructure.Repository.Concrete
         }
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var student = GetById(id);
+            if (student != null)
+            {
+                AppDbContext<Student>.datas.Remove(student);
+            }
         }
 
         public List<Student> GetAll()
@@ -27,12 +31,13 @@ namespace Infrastructure.Repository.Concrete
 
         public List<Student> GetByAge(int age)
         {
-            throw new NotImplementedException();
+            return AppDbContext<Student>.datas.FindAll(x => x.Age == age);
         }
+
 
         public List<Student> GetByGroupId(int groupId)
         {
-            throw new NotImplementedException();
+            return AppDbContext<Student>.datas.FindAll(x => x.Group != null && x.Group.Id == groupId);
         }
 
         public Student? GetById(int id)
@@ -42,7 +47,8 @@ namespace Infrastructure.Repository.Concrete
 
         public List<Student> SearchByNameOrSurname(string keyword)
         {
-            throw new NotImplementedException();
+            string lowerKeyword = keyword.ToLower();
+            return AppDbContext<Student>.datas.FindAll(x =>x.Name.ToLower().Contains(lowerKeyword) || x.Surname.ToLower().Contains(lowerKeyword));
         }
 
         public void Update(Student data)

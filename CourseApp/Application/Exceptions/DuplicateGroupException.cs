@@ -8,7 +8,9 @@ namespace Application.Exceptions
 {
     public class DuplicateGroupException : Exception
     {
-        public DuplicateGroupException(string name) : base($"Qrup adı '{name}' artıq mövcuddur. Qrup adı unikal olmalıdır.") { }
+        public DuplicateGroupException(string name) : base($"Group name '{name}' already exists. Group name must be unique."
+)
+        { }
 
     }
 }
