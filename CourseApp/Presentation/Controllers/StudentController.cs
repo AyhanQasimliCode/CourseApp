@@ -197,9 +197,16 @@ namespace Presentation.Controllers
             var list = _studentService.GetByAge(age);
 
             if (!list.Any())
-                Helper.TypeWriterMessage("No students found with this age", ConsoleColor.Red);
+            {
+                Helper.TypeWriterMessage("No students found with this age",ConsoleColor.Red);
+            }
             else
-                list.ForEach(PrintStudent);
+            {
+                foreach (var student in list)
+                {
+                    PrintStudent(student);
+                }
+            }
         }
         public void GetByGroupId()
         {
@@ -208,9 +215,16 @@ namespace Presentation.Controllers
             var list = _studentService.GetByGroupId(groupId);
 
             if (!list.Any())
-                Helper.TypeWriterMessage("No students found for this group", ConsoleColor.Red);
+            {
+                Helper.TypeWriterMessage("No students found for this group",ConsoleColor.Red);
+            }
             else
-                list.ForEach(PrintStudent);
+            {
+                foreach (var student in list)
+                {
+                    PrintStudent(student);
+                }
+            }
         }
 
         public void SearchByNameOrSurname()
@@ -220,9 +234,17 @@ namespace Presentation.Controllers
             var list = _studentService.SearchByNameOrSurname(search);
 
             if (!list.Any())
-                Helper.TypeWriterMessage("No matching students found", ConsoleColor.Red);
+            {
+                Helper.TypeWriterMessage("No matching students found",ConsoleColor.Red);
+            }
             else
-                list.ForEach(PrintStudent);
+            {
+                foreach (var student in list)
+                {
+                    PrintStudent(student);
+                }
+            }
+
         }
         private void PrintStudent(Student student)
         {

@@ -107,14 +107,16 @@ namespace Presentation.Controllers
         {
             var teacher = Helper.GetValidatedStringLettersOnly("Teacher: ");
             var list = _groupService.GetByTeacher(teacher);
-            foreach (var g in list) PrintGroup(g);
+            foreach (var g in list)
+                PrintGroup(g);
         }
 
         public void GetByRoom()
         {
             var room = Helper.GetValidatedStringAlphaNumeric("Room: ");
             var list = _groupService.GetByRoom(room);
-            foreach (var g in list) PrintGroup(g);
+            foreach (var g in list)
+                PrintGroup(g);
         }
 
         public void GetAll()
@@ -125,14 +127,16 @@ namespace Presentation.Controllers
                 Helper.TypeWriterMessage("No groups available.", ConsoleColor.Red);
                 return;
             }
-            foreach (var g in list) PrintGroup(g);
+            foreach (var g in list)
+                PrintGroup(g);
         }
 
         public void SearchByName()
         {
             var name = Helper.GetValidatedStringLettersOnly("Search name: ");
             var list = _groupService.SearchByName(name);
-            foreach (var g in list) PrintGroup(g);
+            foreach (var g in list)
+                PrintGroup(g);
         }
 
         private void PrintGroup(Group group)
